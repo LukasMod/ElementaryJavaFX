@@ -3,7 +3,9 @@ package Main;
 import MenuUtil.MenuUtilities;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.scene.Scene;
@@ -25,6 +27,17 @@ public class MainWindow extends Application {
 
         stackPane.getChildren().add(MenuUtilities.prepareMenu()); //dodaje menu (za pomocą javy)
         stackPane.setAlignment(Pos.TOP_LEFT); //umieszczamy menu bar w lewym górnym rogu
+
+      /*   dodawanie pola tekstowego za pomocą Javy
+       TextField txt = new TextField();
+        txt.setId("text01");
+        txt.setMaxWidth(400);
+        txt.setMinWidth(200);
+        StackPane.setMargin(txt, new Insets(120,10,10,10));
+        txt.setDisable(true);   //wyłączenie pola tekstowego
+
+        stackPane.getChildren().add(txt);
+*/
 
         primaryStage.setHeight(600);
         primaryStage.setWidth(900);
