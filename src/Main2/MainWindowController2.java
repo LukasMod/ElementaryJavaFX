@@ -1,6 +1,7 @@
 package Main2;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class MainWindowController2 implements Initializable {
 
-  public static  Stage stage;
+  public static  Stage window1;
 
     @FXML
    static Button buttonWindow1, buttonWindow2;
@@ -30,20 +31,18 @@ public class MainWindowController2 implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("window1.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage = new Stage();
-        stage.setTitle("Window 1");
-        stage.setResizable(false);  //uniemożliwienie zmiany rozmiaru
-        stage.setScene(scene);
-        stage.show();
-        Button buttonWindow1 = new Button();
-        buttonWindow1.setOnAction(Event -> MainWindowController2.closeWindow1());
+        window1 = new Stage();
+        window1.setTitle("Window 1");
+        window1.setResizable(false);  //uniemożliwienie zmiany rozmiaru
+        window1.setScene(scene);
+        window1.show();
 
     }
 
 
-    public static void closeWindow1() {
-        stage = (Stage) buttonWindow1.getScene().getWindow();
-        stage.close();
+    public void closeWindow1() {
+        window1 = (Stage) window1.getScene().getWindow();
+        window1.close();
     }
 
 
@@ -58,4 +57,5 @@ public class MainWindowController2 implements Initializable {
         Platform.exit();
         System.exit(0);
     }
+
 }
