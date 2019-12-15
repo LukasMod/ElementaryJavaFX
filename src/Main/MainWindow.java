@@ -22,15 +22,23 @@ public class MainWindow extends Application {
         StackPane stackPane = loader.load();
         Scene scene = new Scene(stackPane);
 
-        MainWindowController controller = (MainWindowController) loader.getController();
+        MainWindowController.addControls(stackPane);
+
+
+       // MainWindowController controller = (MainWindowController) loader.getController();
        // controller.setStage(primaryStage); //brakuje czegoś w klasie MainWindowController
 
         stackPane.getChildren().add(MenuUtilities.prepareMenu()); //dodaje menu (za pomocą javy)
         stackPane.setAlignment(Pos.TOP_LEFT); //umieszczamy menu bar w lewym górnym rogu
 
+
+
+
+
       /*   dodawanie pola tekstowego za pomocą Javy
        TextField txt = new TextField();
-        txt.setId("text01");
+        txt.setId("te
+        xt01");
         txt.setMaxWidth(400);
         txt.setMinWidth(200);
         StackPane.setMargin(txt, new Insets(120,10,10,10));
