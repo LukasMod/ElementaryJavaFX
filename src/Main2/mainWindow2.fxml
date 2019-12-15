@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="200.0" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="Main2.MainWindowController2">
+   <children>
+      <Button fx:id="window1" mnemonicParsing="false" text="Window1" StackPane.alignment="CENTER" onAction="#openWindow1">
+         <StackPane.margin>
+            <Insets bottom="10.0" left="10.0" right="90.0" top="10.0" />
+         </StackPane.margin>
+      </Button>
+      <Button  fx:id="window2" mnemonicParsing="false" text="Window2" StackPane.alignment="CENTER" onAction="#openWindow2">
+         <StackPane.margin>
+            <Insets bottom="10.0" left="90.0" right="10.0" top="10.0" />
+         </StackPane.margin>
+      </Button>
+   </children>
+</StackPane>
