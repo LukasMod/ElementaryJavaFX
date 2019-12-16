@@ -32,6 +32,7 @@ public class MainWindowController3 implements Initializable {
         Stage pStage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader();
         StackPane stackPane = fxmlLoader.load(getClass().getResource("window.fxml").openStream());
+        //openStream otwiera kanał do przesyłania danych. Bardzo ważny.
         Window1Controller controller = (Window1Controller) fxmlLoader.getController();
 
         controller.setValue(textField1.getText() + " " + textField2.getText());
