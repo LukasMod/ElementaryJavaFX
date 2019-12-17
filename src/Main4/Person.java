@@ -35,5 +35,8 @@ public class Person {
         this.lastname.set(lastname);
     }
 
-
+    @Override
+    public String toString() {    //potrzebne aby wyświetlić wartość pobranego wiersza
+        return name + " " + lastname;
+    }
 }

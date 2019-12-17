@@ -3,13 +3,11 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="200.0" prefHeight="500.0" prefWidth="700.0"
-           xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main4.MainWindowController4">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="200.0" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main4.MainWindowController4">
    <children>
-      <TableView fx:id="tableView" maxWidth="600.0" minHeight="200.0" minWidth="200.0" prefHeight="200.0" prefWidth="200.0"
-                 StackPane.alignment="TOP_CENTER">
+      <TableView fx:id="tableView" maxHeight="300.0" maxWidth="600.0" minHeight="200.0" minWidth="200.0" prefHeight="200.0" prefWidth="200.0" StackPane.alignment="TOP_CENTER">
         <columns>
           <TableColumn fx:id="nameColumn" maxWidth="2000.0" minWidth="50.0" prefWidth="50.0" text="Name" />
           <TableColumn fx:id="lastnameColumn" prefWidth="75.0" text="Lastname" />
@@ -21,5 +19,18 @@
             <Insets bottom="80.0" left="10.0" right="10.0" top="40.0" />
          </StackPane.margin>
       </TableView>
+      <Label fx:id="labelChosenPerson1" text="Chosen Person" StackPane.alignment="BOTTOM_LEFT">
+         <StackPane.margin>
+            <Insets bottom="200.0" left="10.0" right="10.0" top="10.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="labelChosenPerson2" layoutX="20.0" layoutY="393.0" textFill="#47a41e" StackPane.alignment="BOTTOM_LEFT">
+         <StackPane.margin>
+            <Insets bottom="200.0" left="120.0" right="10.0" top="10.0" />
+         </StackPane.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
    </children>
 </StackPane>
