@@ -4,7 +4,7 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Person {
 
-    private SimpleStringProperty name, lastname;   //bardzo ułątwia zmapowanie Stringów
+    private SimpleStringProperty name, lastname;   //bardzo ułatwia zmapowanie Stringów
 
     public Person(String name, String lastname) {
         this.name = new SimpleStringProperty(name);

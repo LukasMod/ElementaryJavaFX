@@ -32,7 +32,7 @@ public class Window2 implements Initializable {
             window2Stage = new Stage();
             window2Stage.setTitle("Window 2");
             window2Stage.initModality(Modality.APPLICATION_MODAL);  //okno staje się modalne
-            window2Stage.setResizable(false);  //uniemożliwienie zmiany rozmiaru
+            //window2Stage.setResizable(false);  //uniemożliwienie zmiany rozmiaru
             window2Stage.setScene(scene);
             window2Stage.show();
         }
