@@ -3,14 +3,20 @@ package Main4;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -30,7 +36,7 @@ public class MainWindowController4 implements Initializable {
     @FXML
     private TextField nameInputText, lastnameInputText;
     @FXML
-    private Button buttonAdd, buttonDelete;
+    private Button buttonAdd, buttonDelete, buttonEdit;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -178,6 +184,47 @@ public class MainWindowController4 implements Initializable {
 
     }
 
+    //metoda wywołująca okno, abyśmy mogli przesłać tam dane
+    public void openWindow1(ActionEvent event) throws IOException {
+//najpierw odbieramy numer wiersza klikniety w tabelce
+        int selectedRow = tableView.getSelectionModel().getSelectedIndex();
+        //tworzy pomocniczy obiekt Osoba, ktory zwraca z tabeli osobę aby można było odczytać dane
+        Person personToEdit = tableView.getSelectionModel().getSelectedItem();
+
+        //otwieranie okna
+        Stage window1Stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        StackPane stackPane = fxmlLoader.load(getClass().getResource("window.fxml").openStream());
+        //otiweramy  strumień (dane)
+        Window1Controller ctrl = (Window1Controller) fxmlLoader.getController(); //odebranie kontrolera
+        //i przetrzymywanie go w obiekcie controller w referencji nowego okienka
+
+        //wywołujemy metodę setField
+        ctrl.setField(personToEdit, selectedRow, tableView);
+
+        Scene scene = new Scene(stackPane);
+        window1Stage.setTitle("Window 1");
+        window1Stage.setResizable(false);
+        window1Stage.setScene(scene);
+        window1Stage.show();
+
+    }
+
+    //metoda edukacyjna
+    public void reloadTable(TableView<Person> table, int indexRow) {
+//
+//        ObservableList<Person> p = FXCollections.observableArrayList();
+//        for (int x = 0; x <table.getItems().size(); x++) { //zwykłe przejście tabeli
+//            if (x == indexRow) {
+//                //zrób coś jeszcze
+//            }
+//
+//            p.add(new Person(table.getItems().get(x).getName(), table.getItems().get(x).getLastname()));
+//        }
+//
+        tableView = table; //odbieramy nowy tableView(table) i przypisujemy go do istniejącego
+        showTableAfterChange();
+    }
 
     //Kończy działanie programu
     public static void closeProgram() {
