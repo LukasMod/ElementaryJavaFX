@@ -18,7 +18,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(this.getClass().getResource("fxmlFiles/MainScreen.fxml"));
+        loader.setLocation(this.getClass().getResource("fxmlFiles/mainScreenWindow.fxml"));
         StackPane stackPane = loader.load();
 
         Scene scene = new Scene(stackPane, 400, 400);

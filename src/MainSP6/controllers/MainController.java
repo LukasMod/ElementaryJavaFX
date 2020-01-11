@@ -14,18 +14,14 @@ public class MainController {
 
     @FXML
     public void initialize() {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmlFiles/MenuScreen.fxml"));
+        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/MainSP6/fxmlFiles/menuScreenWindow.fxml"));
         Pane pane = null;
 
-      //To poniżej psuje,  ... ?
-
         try {
-            pane = loader.load();
+           pane = loader2.load();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        mainStackPane.getChildren().add(pane);
 
-        // ... ?
     }
 }
