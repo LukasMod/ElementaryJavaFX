@@ -15,10 +15,6 @@ public class Main extends Application {
         StackPane stackPaneTop = MainWindowController.stackPaneTop(); //tworzymy obiekt stackpane i wskazujemy lokalizacje
         borderPane.setTop(stackPaneTop);  // StackPane do BorderPane
 
-        StackPane stackPaneLeft = MainWindowController.stackPaneLeft(); //tworzymy obiekt stackpane i wskazujemy lokalizacje
-        BorderPane.setMargin(stackPaneLeft, new Insets(2, 2, 2, 2)); //marinesy całego stackPane
-        borderPane.setLeft(stackPaneLeft);  // StackPane do BorderPane
-
         StackPane stackPaneBottom = MainWindowController.stackPaneBottom(); //tworzymy obiekt stackpane i wskazujemy lokalizacje
         BorderPane.setMargin(stackPaneBottom, new Insets(2, 2, 2, 2)); //marinesy całego stackPane
         borderPane.setBottom(stackPaneBottom);  // StackPane do BorderPane
@@ -29,6 +25,7 @@ public class Main extends Application {
 
 
         Scene scene = new Scene(borderPane);
+        scene.getStylesheets().add("Main5/styles.css"); //załadowanie stylu
         primaryStage.setTitle("Window - only Java code");
         primaryStage.setOnCloseRequest(windowEvent -> MainWindowController.closeProgram());
         primaryStage.setWidth(800);

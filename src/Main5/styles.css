@@ -1,0 +1,8 @@
+.myButton {
+    -fx-font: 14px "System";
+    -fx-background-color: #87ceeb;
+}
+
+.exitMenuItemStyle > .label {
+    -fx-graphic: url("../images/cancel.png");
+}

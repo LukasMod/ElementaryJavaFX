@@ -5,10 +5,12 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
-import javax.swing.plaf.MenuBarUI;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -23,11 +25,15 @@ public class MainWindowController implements Initializable {
         System.exit(0);
     }
 
-    private static MenuBar prepareMenu () {
+    private static MenuBar prepareMenu() {
         MenuBar menu = new MenuBar();
         Menu menuFile = new Menu("File");  //sekcja w menu
         MenuItem exitMenuItem = new MenuItem("Exit");
+
         exitMenuItem.setOnAction(actionEvent -> MainWindowController.closeProgram());  //wywołanie kliknięciem
+        //dodajemy grafikę do pozycji w menu
+        exitMenuItem.getStyleClass().add("exitMenuItemStyle");
+
 
         //składamy teraz naze klocki w odwrotnej kolejności
         menuFile.getItems().add(exitMenuItem);
@@ -44,31 +50,32 @@ public class MainWindowController implements Initializable {
         b1.setOnAction(actionEvent -> MainWindowController.closeProgram()); //przypisanie akcji do przycisku
         StackPane.setMargin(b1, new Insets(25, 0, 0, 2));  //umiejscowienie przycisku b1
         stackPane.getChildren().add(b1);  //dodanie przycisku
-
+        //b1.getStyleClass().add("exitMenuItemStyle"); metoda jak dla Menu nie działa
 
         return stackPane;  //musi zwrócić nasz obiekt
 
     }
 
-    public static StackPane stackPaneLeft () {
-        StackPane stackPane = new StackPane();
-        stackPane.setAlignment(Pos.TOP_LEFT);  //orientacja
-        //obrysowanie przycisku: kolor, styl, zaokrąglone rogi (promień zagięcia w pikselach),
-        stackPane.setBorder(new Border(new BorderStroke(Color.DARKGOLDENROD, BorderStrokeStyle.DASHED, new CornerRadii(5), BorderWidths.DEFAULT)));
-        stackPane.setPadding(new Insets(4, 4, 4, 4)); //wewnętrzne marginesy w stackPane
+//deleted from Main:
+//    public static StackPane stackPaneLeft() {
+//        StackPane stackPane = new StackPane();
+//        stackPane.setAlignment(Pos.TOP_LEFT);  //orientacja
+//        //obrysowanie przycisku: kolor, styl, zaokrąglone rogi (promień zagięcia w pikselach),
+//        stackPane.setBorder(new Border(new BorderStroke(Color.DARKGOLDENROD, BorderStrokeStyle.DASHED, new CornerRadii(5), BorderWidths.DEFAULT)));
+//        stackPane.setPadding(new Insets(4, 4, 4, 4)); //wewnętrzne marginesy w stackPane
+//
+//        Button b1 = new Button("Button StackPane Left");  //przycisk
+//        b1.setPrefWidth(150);
+//        stackPane.getChildren().add(b1);  //dodanie przycisku
+//
+//        Button b2 = new Button("Button Small");  //przycisk
+//        stackPane.getChildren().add(b2);  //dodanie przycisku
+//        StackPane.setMargin(b2, new Insets(25, 0, 0, 2));  //umiejscowienie przycisku b1
+//
+//        return stackPane;  //musi zwrócić nasz obiekt
+//    }
 
-        Button b1 = new Button("Button StackPane Left");  //przycisk
-        b1.setPrefWidth(150);
-        stackPane.getChildren().add(b1);  //dodanie przycisku
-
-        Button b2 = new Button("Button Small");  //przycisk
-        stackPane.getChildren().add(b2);  //dodanie przycisku
-        StackPane.setMargin(b2, new Insets(25, 0, 0, 2));  //umiejscowienie przycisku b1
-
-        return stackPane;  //musi zwrócić nasz obiekt
-    }
-
-    public static StackPane stackPaneBottom () {
+    public static StackPane stackPaneBottom() {
         StackPane stackPane = new StackPane();
         stackPane.setAlignment(Pos.TOP_LEFT);  //orientacja
         //obrysowanie przycisku: kolor, styl, zaokrąglone rogi (promień zagięcia w pikselach),
@@ -79,10 +86,22 @@ public class MainWindowController implements Initializable {
         b1.setPrefWidth(150);
         stackPane.getChildren().add(b1);  //dodanie przycisku
 
+        MainWindowController controller = new MainWindowController();
+
+        b1.getStyleClass().add("myButton"); //dodaje styl do przycisku
+        b1.setGraphic(controller.loadImage());
+
         return stackPane;  //musi zwrócić nasz obiekt
     }
 
-    public static StackPane stackPaneCenter () {
+    //metoda wczytująca grafikę
+    private ImageView loadImage() {
+        Image icon = new Image(getClass().getResourceAsStream("../images/cancel.png")); // ../oznacza katalog niżej
+        ImageView imageIcon = new ImageView(icon);
+        return imageIcon;
+    }
+
+    public static StackPane stackPaneCenter() {
         StackPane stackPane = new StackPane();
         stackPane.setAlignment(Pos.TOP_LEFT);  //orientacja
         //obrysowanie przycisku: kolor, styl, zaokrąglone rogi (promień zagięcia w pikselach),
