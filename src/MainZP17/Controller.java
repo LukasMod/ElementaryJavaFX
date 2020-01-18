@@ -17,12 +17,20 @@ public class Controller implements Initializable {
     @FXML
     private Button buttonWrite;
 
+    private Person person = new Person();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+//        textField.setText(person.getName());
+//        labelName.setText(person.getName());
+        textField.textProperty().bindBidirectional(person.getPropertyTextField());
+        labelName.textProperty().bind(person.getPropertyTextField());
     }
 
     public void write() {
+        System.out.println(person.getIntegerProperty().get());
+        System.out.println(person.getIntegerProperty().getValue());
+//        labelName.setText(textField.getText());
+//        person.setName(textField.getText());
     }
 }
