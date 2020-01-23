@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<StackPane fx:controller="MainZP22.Tab2Controller" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Button fx:id="buttonTab2"  onAction="#writeMessage" mnemonicParsing="false" text="Button" />
+        <Label fx:id="labelTab2" text="Label" StackPane.alignment="CENTER">
+            <font>
+                <Font size="24.0" />
+            </font>
+            <StackPane.margin>
+                <Insets bottom="100.0" />
+            </StackPane.margin>
+        </Label>
+    </children>
+</StackPane>
